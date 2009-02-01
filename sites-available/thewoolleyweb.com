@@ -4,14 +4,21 @@ server {
 }
 
 server {
-#	listen   80;
 	server_name  thewoolleyweb.com;
+	index  index.html index.htm;
+	root   /var/www/thewoolleyweb.com;
 
 	access_log  /var/log/nginx/thewoolleyweb.com.access.log;
 
 	location / {
-		root   /var/www/thewoolleyweb.com;
-		index  index.html index.htm;
+	}
+
+	location ~ /(download|music|oldsites) {
+		autoindex on;
+	}
+
+	location ~ /ci_for_.* {
+		autoindex on;
 	}
 
 	#error_page  404  /404.html;
