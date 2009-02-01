@@ -1,11 +1,10 @@
-# You may add here your
-# server {
-#	...
-# }
-# statements for each of your virtual hosts
+server {
+	server_name  www.thewoolleyweb.com;
+	rewrite ^/(.*) http://thewoolleyweb.com/$1 permanent;
+}
 
 server {
-	listen   80;
+#	listen   80;
 	server_name  thewoolleyweb.com;
 
 	access_log  /var/log/nginx/thewoolleyweb.com.access.log;
