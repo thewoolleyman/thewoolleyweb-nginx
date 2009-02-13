@@ -4,6 +4,11 @@ server {
 }
 
 server {
+        server_name  www.thewoolleyman.com thewoolleyman.com;
+        rewrite ^/(.*) http://thewoolleyweb.com/$1 permanent;
+}
+
+server {
 	server_name  thewoolleyweb.com;
 	index  index.html index.htm;
 	root   /var/www/thewoolleyweb.com;
