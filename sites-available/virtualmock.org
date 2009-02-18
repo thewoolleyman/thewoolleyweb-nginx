@@ -1,0 +1,20 @@
+server {
+	server_name  www.virtualmock.org;
+	rewrite ^/(.*) http://virtualmock.org/$1 permanent;
+}
+
+server {
+	server_name  virtualmock.org;
+	index  index.html index.htm;
+	root   /var/www/virtualmock.org;
+
+	access_log  /var/log/nginx/virtualmock.org.access.log;
+
+	location / {
+	}
+
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+		root   /var/www/virtualmock.org;
+	}
+}
