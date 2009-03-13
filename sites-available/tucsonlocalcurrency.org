@@ -1,20 +1,22 @@
 server {
 	server_name  www.tucsonlocalcurrency.org;
-	rewrite ^/(.*) http://tucsonlocalcurrency.org/$1 permanent;
+#	rewrite ^/(.*) http://tucsonlocalcurrency.org/$1 permanent;
+	rewrite ^/(.*) http://groups.google.com/group/tucsonlocalcurrency;
 }
 
 server {
 	server_name  tucsonlocalcurrency.org;
-	index  index.html index.htm;
-	root   /var/www/tucsonlocalcurrency.org;
-
-	access_log  /var/log/nginx/tucsonlocalcurrency.org.access.log;
-
-	location / {
-	}
-
-	error_page   500 502 503 504  /50x.html;
-	location = /50x.html {
-		root   /var/www/tucsonlocalcurrency.org;
-	}
+	rewrite ^/(.*) http://groups.google.com/group/tucsonlocalcurrency;
+#	index  index.html index.htm;
+#	root   /var/www/tucsonlocalcurrency.org;
+#
+#	access_log  /var/log/nginx/tucsonlocalcurrency.org.access.log;
+#
+#	location / {
+#	}
+#
+#	error_page   500 502 503 504  /50x.html;
+#	location = /50x.html {
+#		root   /var/www/tucsonlocalcurrency.org;
+#	}
 }
